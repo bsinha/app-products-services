@@ -1,21 +1,13 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import { AppService } from './app.service';
-import { AxiosResponse } from 'axios';
+import { Controller, Get } from '@nestjs/common';
 import { Observable } from 'rxjs';
+import { AppService } from './app.service';
 
-@Controller("/products")
+@Controller("/users")
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getProducts():  Observable<any[]> {
-    return this.appService.getProducts();
+  getUsers():  Observable<any[]> {
+    return this.appService.getUsers();
   }
-
-  @Get(":id")
-  getProductById(@Param('id')id:string) {
- 
-    return this.appService.getProductById(id);
-  }
-
 }

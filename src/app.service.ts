@@ -8,11 +8,7 @@ export class AppService {
 
   constructor(private readonly httpService: HttpService) {}
 
-  getProducts():  Observable<any[]>{
-    return this.httpService.get('https://fakerapi.it/api/v1/products').pipe(map(response => response.data.data));
-  }
-
-  getProductById(id:string):  Observable<any>{
-    return this.httpService.get('https://fakerapi.it/api/v1/products').pipe(map(response => response.data.data),find(data => data.id === 1));
+  getUsers():  Observable<any[]>{
+    return this.httpService.get('https://fakerapi.it/api/v1/users').pipe(map(response => response.data.data));
   }
 }
